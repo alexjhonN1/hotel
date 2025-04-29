@@ -1,0 +1,11 @@
+<h1>Editar Cliente</h1>
+
+<form action="/clientes/editar/<%= cliente.id %>" method="POST">
+  <input type="text" name="nombre" value="<%= cliente.nombre %>" required>
+  <input type="email" name="correo" value="<%= cliente.correo %>" required>
+  <input type="text" name="telefono" value="<%= cliente.telefono %>">
+  <input type="text" name="documento_identidad" value="<%= cliente.documento_identidad %>" required>
+  <button type="submit">Actualizar</button>
+</form>
+
+<a href="/clientes">Volver</a>

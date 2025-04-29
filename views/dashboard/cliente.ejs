@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Cliente</title>
+</head>
+<body>
+  <h1>Bienvenido Cliente, <%= usuario.nombre %>!</h1>
+  <p>Rol: <%= usuario.rol %></p>
+
+  <nav>
+    <ul>
+      <li><a href="/reservar">Hacer Reserva</a></li>
+      <li><a href="/mis-reservas">Mis Reservas</a></li>
+      <li><a href="/logout">Cerrar sesión</a></li>
+    </ul>
+  </nav>
+</body>
+</html>

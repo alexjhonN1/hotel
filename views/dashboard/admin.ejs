@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Admin - Hotel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+    .button {
+      display: inline-block;
+      margin: 10px 5px 0;
+      padding: 10px 15px;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bienvenido, <%= usuario.nombre %> (Administrador)</h1>
+
+  <div class="card">
+    <h2>Opciones principales</h2>
+    <a href="/usuarios" class="button">Gestionar Usuarios</a>
+    <a href="/habitaciones" class="button">Gestionar Habitaciones</a>
+    <a href="/reservas" class="button">Gestionar Reservas</a>
+    <a href="/reportes" class="button">Ver Reportes</a>
+    <a href="/logout" class="button" style="background-color: #f44336;">Cerrar Sesión</a>
+  </div>
+
+</body>
+</html>

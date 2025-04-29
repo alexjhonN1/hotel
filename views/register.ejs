@@ -1,0 +1,16 @@
+<h2>Registrar Usuario</h2>
+<form action="/register" method="POST">
+  <input type="text" name="nombre" placeholder="Nombre completo" required>
+  <input type="email" name="correo" placeholder="Correo" required>
+  <input type="password" name="password" placeholder="Contraseña" required>
+  <select name="rol" required>
+    <option value="admin">Administrador</option>
+    <option value="recepcionista">Recepcionista</option>
+    <option value="cliente">Cliente</option>
+  </select>
+  <button type="submit">Registrar</button>
+</form>
+
+<%= mensaje || '' %>
+
+<p>¿Ya tienes cuenta? <a href="/login"><button>Volver al login</button></a></p>

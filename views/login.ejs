@@ -1,0 +1,10 @@
+<h2>Iniciar Sesión</h2>
+<form action="/login" method="POST">
+  <input type="email" name="correo" placeholder="Correo" required>
+  <input type="password" name="password" placeholder="Contraseña" required>
+  <button type="submit">Ingresar</button>
+</form>
+
+<%= mensaje || '' %>
+
+<p>¿No tienes cuenta? <a href="/register"><button>Regístrate aquí</button></a></p>

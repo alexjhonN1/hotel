@@ -1,0 +1,17 @@
+<h1>Editar Habitación</h1>
+
+<form action="/habitaciones/editar/<%= habitacion.id %>" method="POST" enctype="multipart/form-data">
+  <input type="text" name="numero" value="<%= habitacion.numero %>" required>
+  <input type="text" name="tipo" value="<%= habitacion.tipo %>" required>
+  <textarea name="descripcion"><%= habitacion.descripcion %></textarea>
+  <input type="number" name="precio" value="<%= habitacion.precio %>" step="0.01" required>
+  <select name="estado" required>
+    <option value="disponible" <%= habitacion.estado === 'disponible' ? 'selected' : '' %>>Disponible</option>
+    <option value="ocupada" <%= habitacion.estado === 'ocupada' ? 'selected' : '' %>>Ocupada</option>
+    <option value="mantenimiento" <%= habitacion.estado === 'mantenimiento' ? 'selected' : '' %>>Mantenimiento</option>
+  </select>
+  <input type="file" name="imagen" accept="image/*">
+  <button type="submit">Actualizar</button>
+</form>
+
+<a href="/habitaciones">Volver</a>

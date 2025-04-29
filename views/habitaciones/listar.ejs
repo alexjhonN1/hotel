@@ -1,0 +1,41 @@
+<h1>Habitaciones</h1>
+
+<a href="/habitaciones/nuevo">Agregar Nueva Habitación</a>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Número</th>
+      <th>Tipo</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Estado</th>
+      <th>Imagen</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% habitaciones.forEach(h => { %>
+      <tr>
+        <td><%= h.id %></td>
+        <td><%= h.numero %></td>
+        <td><%= h.tipo %></td>
+        <td><%= h.descripcion %></td>
+        <td>S/. <%= h.precio %></td>
+        <td><%= h.estado %></td>
+        <td>
+          <% if (h.imagen) { %>
+            <img src="/uploads/<%= h.imagen %>" width="100">
+          <% } else { %>
+            Sin imagen
+          <% } %>
+        </td>
+        <td>
+          <a href="/habitaciones/editar/<%= h.id %>">Editar</a> |
+          <a href="/habitaciones/eliminar/<%= h.id %>" onclick="return confirm('¿Seguro de eliminar esta habitación?')">Eliminar</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>

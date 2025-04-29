@@ -1,0 +1,27 @@
+<h2>Gestión de Usuarios</h2>
+<table border="1">
+  <tr>
+    <th>Nombre</th>
+    <th>Correo</th>
+    <th>Rol actual</th>
+    <th>Actualizar rol</th>
+  </tr>
+  <% usuarios.forEach(usuario => { %>
+    <tr>
+      <td><%= usuario.nombre %></td>
+      <td><%= usuario.correo %></td>
+      <td><%= usuario.rol %></td>
+      <td>
+        <form action="/usuarios/actualizar-rol" method="POST">
+          <input type="hidden" name="id" value="<%= usuario.id %>">
+          <select name="rol">
+            <option value="admin" <%= usuario.rol === 'admin' ? 'selected' : '' %>>Admin</option>
+            <option value="recepcionista" <%= usuario.rol === 'recepcionista' ? 'selected' : '' %>>Recepcionista</option>
+            <option value="cliente" <%= usuario.rol === 'cliente' ? 'selected' : '' %>>Cliente</option>
+          </select>
+          <button type="submit">Actualizar</button>
+        </form>
+      </td>
+    </tr>
+  <% }) %>
+</table>

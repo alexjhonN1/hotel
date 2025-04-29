@@ -1,0 +1,22 @@
+<h2>Lista de Usuarios</h2>
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Correo</th>
+    <th>Rol</th>
+    <th>Acciones</th>
+  </tr>
+  <% usuarios.forEach(u => { %>
+    <tr>
+      <td><%= u.id %></td>
+      <td><%= u.nombre %></td>
+      <td><%= u.correo %></td>
+      <td><%= u.rol %></td>
+      <td>
+        <a href="/usuarios/editar/<%= u.id %>">Editar</a> |
+        <a href="/usuarios/eliminar/<%= u.id %>" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+      </td>
+    </tr>
+  <% }) %>
+</table>
