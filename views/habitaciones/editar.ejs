@@ -1,17 +1,94 @@
-<h1>Editar Habitación</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Habitación</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f9;
+      padding: 40px;
+    }
 
-<form action="/habitaciones/editar/<%= habitacion.id %>" method="POST" enctype="multipart/form-data">
-  <input type="text" name="numero" value="<%= habitacion.numero %>" required>
-  <input type="text" name="tipo" value="<%= habitacion.tipo %>" required>
-  <textarea name="descripcion"><%= habitacion.descripcion %></textarea>
-  <input type="number" name="precio" value="<%= habitacion.precio %>" step="0.01" required>
-  <select name="estado" required>
-    <option value="disponible" <%= habitacion.estado === 'disponible' ? 'selected' : '' %>>Disponible</option>
-    <option value="ocupada" <%= habitacion.estado === 'ocupada' ? 'selected' : '' %>>Ocupada</option>
-    <option value="mantenimiento" <%= habitacion.estado === 'mantenimiento' ? 'selected' : '' %>>Mantenimiento</option>
-  </select>
-  <input type="file" name="imagen" accept="image/*">
-  <button type="submit">Actualizar</button>
-</form>
+    h1 {
+      text-align: center;
+      color: #333;
+    }
 
-<a href="/habitaciones">Volver</a>
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea, select {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      background-color: #4e4376;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2b5876;
+    }
+
+    .volver {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #4e4376;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .volver:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Editar Habitación</h1>
+
+  <form action="/habitaciones/editar/<%= habitacion.id %>" method="POST" enctype="multipart/form-data">
+    <input type="text" name="numero" value="<%= habitacion.numero %>" required placeholder="Número de habitación">
+    <input type="text" name="tipo" value="<%= habitacion.tipo %>" required placeholder="Tipo (simple, doble, suite)">
+    <textarea name="descripcion" placeholder="Descripción de la habitación"><%= habitacion.descripcion %></textarea>
+    <input type="number" name="precio" value="<%= habitacion.precio %>" step="0.01" required placeholder="Precio por noche">
+    <select name="estado" required>
+      <option value="disponible" <%= habitacion.estado === 'disponible' ? 'selected' : '' %>>Disponible</option>
+      <option value="ocupada" <%= habitacion.estado === 'ocupada' ? 'selected' : '' %>>Ocupada</option>
+      <option value="mantenimiento" <%= habitacion.estado === 'mantenimiento' ? 'selected' : '' %>>Mantenimiento</option>
+    </select>
+    <input type="file" name="imagen" accept="image/*">
+    <button type="submit">Actualizar</button>
+  </form>
+
+  <a href="/habitaciones" class="volver">← Volver a la lista de habitaciones</a>
+
+</body>
+</html>

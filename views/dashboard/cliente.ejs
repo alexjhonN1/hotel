@@ -3,6 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>Dashboard Cliente</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #c2e9fb 0%, #a1c4fd 100%);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #34495e;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav a {
+      text-decoration: none;
+      padding: 12px 20px;
+      background-color: #3498db;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #2980b9;
+    }
+  </style>
 </head>
 <body>
   <h1>Bienvenido Cliente, <%= usuario.nombre %>!</h1>

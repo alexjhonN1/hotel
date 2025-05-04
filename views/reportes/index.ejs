@@ -1,0 +1,36 @@
+
+<h2>Reporte de Reservas</h2>
+<form method="POST" action="/reportes/generar">
+  <label>Desde: <input type="date" name="desde" required></label>
+  <label>Hasta: <input type="date" name="hasta" required></label>
+  <select name="formato">
+    <option value="vista">Ver en pantalla</option>
+    <option value="pdf">Exportar a PDF</option>
+    <option value="excel">Exportar a Excel</option>
+  </select>
+  <button type="submit">Generar</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Cliente</th>
+      <th>Habitación</th>
+      <th>Desde</th>
+      <th>Hasta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% reservas.forEach(r => { %>
+      <tr>
+        <td><%= r.id %></td>
+        <td><%= r.cliente %></td>
+        <td><%= r.habitacion %></td>
+        <td><%= r.fecha_inicio %></td>
+        <td><%= r.fecha_fin %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+

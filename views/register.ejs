@@ -1,16 +1,106 @@
-<h2>Registrar Usuario</h2>
-<form action="/register" method="POST">
-  <input type="text" name="nombre" placeholder="Nombre completo" required>
-  <input type="email" name="correo" placeholder="Correo" required>
-  <input type="password" name="password" placeholder="Contraseña" required>
-  <select name="rol" required>
-    <option value="admin">Administrador</option>
-    <option value="recepcionista">Recepcionista</option>
-    <option value="cliente">Cliente</option>
-  </select>
-  <button type="submit">Registrar</button>
-</form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Usuario</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #4e4376, #2b5876);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-<%= mensaje || '' %>
+    .register-container {
+      background-color: #fff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
 
-<p>¿Ya tienes cuenta? <a href="/login"><button>Volver al login</button></a></p>
+    .register-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .register-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    .register-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4e4376;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background-color 0.3s ease;
+    }
+
+    .register-container button:hover {
+      background-color: #2b5876;
+    }
+
+    .mensaje {
+      margin-top: 15px;
+      color: #d8000c;
+    }
+
+    .login-link {
+      margin-top: 20px;
+    }
+
+    .login-link a {
+      text-decoration: none;
+    }
+
+    .login-link button {
+      background: none;
+      border: 2px solid #4e4376;
+      color: #4e4376;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .login-link button:hover {
+      background-color: #4e4376;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h2>Registrar Usuario</h2>
+    <form action="/register" method="POST">
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="email" name="correo" placeholder="Correo" required>
+      <input type="password" name="password" placeholder="Contraseña" required>
+      <button type="submit">Registrar</button>
+    </form>
+
+    <div class="mensaje"><%= mensaje || '' %></div>
+
+    <div class="login-link">
+      <p>¿Ya tienes cuenta?</p>
+      <a href="/login"><button>Volver al login</button></a>
+    </div>
+  </div>
+</body>
+</html>

@@ -5,10 +5,10 @@ const path = require('path');
 // Configurar multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/uploads/');
+    cb(null, path.join(__dirname, '../public/uploads/')); // Asegúrate de tener esta carpeta
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
+    cb(null, Date.now() + path.extname(file.originalname)); // Asegúrate de que se guarde con una extensión adecuada
   }
 });
 const upload = multer({ storage });

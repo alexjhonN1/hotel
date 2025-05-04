@@ -1,11 +1,84 @@
-<h1>Agregar Nuevo Cliente</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agregar Cliente</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f9fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 50px;
+    }
 
-<form action="/clientes/nuevo" method="POST">
-  <input type="text" name="nombre" placeholder="Nombre completo" required>
-  <input type="email" name="correo" placeholder="Correo" required>
-  <input type="text" name="telefono" placeholder="Teléfono">
-  <input type="text" name="documento_identidad" placeholder="DNI o Pasaporte" required>
-  <button type="submit">Guardar</button>
-</form>
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
 
-<a href="/clientes">Volver</a>
+    form {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    button {
+      background-color: #4e4376;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2b5876;
+    }
+
+    a {
+      margin-top: 20px;
+      color: #4e4376;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Agregar Nuevo Cliente</h1>
+
+  <form action="/clientes/nuevo" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre completo" required>
+    <input type="email" name="correo" placeholder="Correo" required>
+    <input type="text" name="telefono" placeholder="Teléfono">
+    <input type="text" name="documento_identidad" placeholder="DNI o Pasaporte" required>
+    <button type="submit">Guardar</button>
+  </form>
+
+  <a href="/clientes">← Volver a la lista de clientes</a>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<h3>Reservas desde <%= fecha_inicio %> hasta <%= fecha_fin %></h3>
+<table>
+  <tr><th>ID</th><th>Cliente</th><th>Habitación</th><th>Inicio</th><th>Fin</th></tr>
+  <% reservas.forEach(r => { %>
+    <tr>
+      <td><%= r.id %></td>
+      <td><%= r.cliente %></td>
+      <td><%= r.habitacion %></td>
+      <td><%= r.fecha_inicio %></td>
+      <td><%= r.fecha_fin %></td>
+    </tr>
+  <% }) %>
+</table>

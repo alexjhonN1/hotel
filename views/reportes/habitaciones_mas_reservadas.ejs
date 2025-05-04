@@ -1,0 +1,11 @@
+<h3>Habitaciones más reservadas</h3>
+<table>
+  <tr><th>Número</th><th>Tipo</th><th>Total Reservas</th></tr>
+  <% habitaciones.forEach(h => { %>
+    <tr>
+      <td><%= h.numero %></td>
+      <td><%= h.tipo %></td>
+      <td><%= h.total_reservas %></td>
+    </tr>
+  <% }) %>
+</table>

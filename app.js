@@ -12,6 +12,7 @@ app.use(session({
   saveUninitialized: false
 }));
 
+// Motor de plantillas
 app.set('view engine', 'ejs');
 
 // Rutas
@@ -23,19 +24,19 @@ app.get('/register', (req, res) => res.render('register', { mensaje: null }));
 const authRoutes = require('./routes/authRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const usuarioRoutes = require('./routes/usuarioRoutes');
+const habitacionRoutes = require('./routes/habitacionRoutes');
+const clienteRoutes = require('./routes/clienteRoutes');
+const reservaRoutes = require('./routes/reservaRoutes');
+const reporteRoutes = require('./routes/reporteRoutes');
 
 // Usar rutas
 app.use('/', authRoutes);
 app.use('/', dashboardRoutes);
 app.use('/', usuarioRoutes);
+app.use('/', habitacionRoutes);  // Ruta de habitaciones
+app.use('/', clienteRoutes);     // Ruta de clientes
+app.use('/reservas', reservaRoutes);  // Ruta de reservas
+app.use('/reportes', reporteRoutes);  // Ruta de reportes
 
 // Servidor
 app.listen(3000, () => console.log('Servidor corriendo en http://localhost:3000'));
-
-
-const habitacionRoutes = require('./routes/habitacionRoutes');
-app.use('/', habitacionRoutes);
-
-
-const clienteRoutes = require('./routes/clienteRoutes');
-app.use('/', clienteRoutes);

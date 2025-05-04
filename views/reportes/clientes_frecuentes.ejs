@@ -1,0 +1,11 @@
+<h3>Clientes frecuentes</h3>
+<table>
+  <tr><th>Nombre</th><th>Correo</th><th>Total Reservas</th></tr>
+  <% clientes.forEach(c => { %>
+    <tr>
+      <td><%= c.nombre %></td>
+      <td><%= c.correo %></td>
+      <td><%= c.total_reservas %></td>
+    </tr>
+  <% }) %>
+</table>

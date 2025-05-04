@@ -1,27 +1,128 @@
-<h2>Gestión de Usuarios</h2>
-<table border="1">
-  <tr>
-    <th>Nombre</th>
-    <th>Correo</th>
-    <th>Rol actual</th>
-    <th>Actualizar rol</th>
-  </tr>
-  <% usuarios.forEach(usuario => { %>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Usuarios</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      padding: 40px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .btn-back {
+      text-decoration: none;
+      background-color: #6a11cb;
+      background-image: linear-gradient(315deg, #6a11cb 0%, #2575fc 74%);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-back:hover {
+      opacity: 0.9;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    th {
+      background-color: #4e4376;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #f0f0f0;
+    }
+
+    select, button {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #4e4376;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2b5876;
+    }
+
+    form {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <h2>Gestión de Usuarios</h2>
+    <a class="btn-back" href="/dashboard">← Regresar al inicio</a>
+  </div>
+
+  <table>
     <tr>
-      <td><%= usuario.nombre %></td>
-      <td><%= usuario.correo %></td>
-      <td><%= usuario.rol %></td>
-      <td>
-        <form action="/usuarios/actualizar-rol" method="POST">
-          <input type="hidden" name="id" value="<%= usuario.id %>">
-          <select name="rol">
-            <option value="admin" <%= usuario.rol === 'admin' ? 'selected' : '' %>>Admin</option>
-            <option value="recepcionista" <%= usuario.rol === 'recepcionista' ? 'selected' : '' %>>Recepcionista</option>
-            <option value="cliente" <%= usuario.rol === 'cliente' ? 'selected' : '' %>>Cliente</option>
-          </select>
-          <button type="submit">Actualizar</button>
-        </form>
-      </td>
+      <th>Nombre</th>
+      <th>Correo</th>
+      <th>Rol actual</th>
+      <th>Actualizar rol</th>
     </tr>
-  <% }) %>
-</table>
+    <% usuarios.forEach(usuario => { %>
+      <tr>
+        <td><%= usuario.nombre %></td>
+        <td><%= usuario.correo %></td>
+        <td><%= usuario.rol %></td>
+        <td>
+          <form action="/usuarios/actualizar-rol" method="POST">
+            <input type="hidden" name="id" value="<%= usuario.id %>">
+            <select name="rol">
+              <option value="admin" <%= usuario.rol === 'admin' ? 'selected' : '' %>>Admin</option>
+              <option value="recepcionista" <%= usuario.rol === 'recepcionista' ? 'selected' : '' %>>Recepcionista</option>
+              <option value="cliente" <%= usuario.rol === 'cliente' ? 'selected' : '' %>>Cliente</option>
+            </select>
+            <button type="submit">Actualizar</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
